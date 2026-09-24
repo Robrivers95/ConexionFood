@@ -1,29 +1,8 @@
- # ConexionFood
--Conexion food es una app similar a Didi Food para ciudades pequeñas
-+
-+Conexion food es una app similar a Didi Food para ciudades pequeñas.
-+
-+## Backend
-+
-+Este repositorio incluye un prototipo sencillo de backend construido con [FastAPI](https://fastapi.tiangolo.com/).
-+
-+### Requisitos
-+
-+```bash
-+pip install -r requirements.txt
-+```
-+
-+### Ejecutar pruebas
-+
-+```bash
-+pytest
-+```
-+
-+### Iniciar servidor de desarrollo
-+
-+```bash
-+uvicorn app.main:app --reload
-+```
- 
-EOF
-)
+# Productos China
+
+MVP web para controlar ideas de inversión, compras desde China, inventario, comparativas de mercado, preparación de Facebook Marketplace, ventas y balances del equipo.
+
+## Deploy
+Cada push a `main` ejecuta GitHub Actions y publica `dist/` en GitHub Pages.
+
+Repositorio temporal: `ConexionFood`. Cuando se renombre, GitHub Pages usará automáticamente la nueva ruta del repositorio.

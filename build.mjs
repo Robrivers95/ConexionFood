@@ -1,0 +1,2 @@
+import {mkdir,rm,copyFile,writeFile} from 'node:fs/promises';
+await rm('dist',{recursive:true,force:true});await mkdir('dist',{recursive:true});await copyFile('index.html','dist/index.html');await writeFile('dist/.nojekyll','');console.log('Build OK');
