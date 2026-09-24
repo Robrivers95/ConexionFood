@@ -1,57 +1,45 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Productos China</title>
-<style>
-:root{--bg:#f5f7fb;--card:#fff;--ink:#0f172a;--muted:#64748b;--line:#e2e8f0;--blue:#2563eb;--nav:#0b1220;--green:#059669;--amber:#d97706}
-*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--ink)}
-button,input,select{font:inherit}.shell{display:grid;grid-template-columns:250px 1fr;min-height:100vh}.side{background:var(--nav);color:#fff;padding:22px 16px;position:sticky;top:0;height:100vh}.brand{display:flex;gap:10px;align-items:center;margin-bottom:24px}.logo{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,#38bdf8,#2563eb);font-weight:900}.brand small{display:block;color:#94a3b8}.nav button{width:100%;border:0;background:transparent;color:#94a3b8;text-align:left;padding:11px 12px;border-radius:11px;margin:3px 0;cursor:pointer}.nav button.active,.nav button:hover{background:#172033;color:white}.main{min-width:0}.top{position:sticky;top:0;z-index:10;background:#ffffffee;backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:18px 28px;display:flex;justify-content:space-between;align-items:center}.top h1{margin:0;font-size:24px}.eyebrow{font-size:10px;letter-spacing:.15em;color:var(--muted);font-weight:800}.btn{border:0;border-radius:11px;padding:10px 13px;font-weight:750;cursor:pointer}.primary{background:var(--blue);color:#fff}.ghost{background:#fff;border:1px solid var(--line)}.content{padding:26px 28px 90px;max-width:1450px;margin:auto}.grid{display:grid;gap:15px}.metrics{grid-template-columns:repeat(4,1fr)}.card{background:var(--card);border:1px solid var(--line);border-radius:17px;box-shadow:0 10px 30px #0f172a0b}.metric{padding:17px}.metric small{color:var(--muted);font-weight:700}.metric strong{display:block;font-size:26px;margin:9px 0 3px}.section{display:flex;justify-content:space-between;align-items:end;margin:24px 0 11px}.section h2{font-size:17px;margin:0}.section p{font-size:12px;color:var(--muted);margin:3px 0 0}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:13px}th{font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);text-align:left;padding:12px 14px;border-bottom:1px solid var(--line)}td{padding:13px 14px;border-bottom:1px solid #f1f5f9}.badge{display:inline-block;padding:5px 8px;border-radius:999px;font-size:10px;font-weight:800;background:#f1f5f9}.green{background:#dcfce7;color:#166534}.amber{background:#fef3c7;color:#92400e}.blue{background:#dbeafe;color:#1d4ed8}.product{display:flex;gap:10px;align-items:center;min-width:220px}.emoji{width:40px;height:40px;display:grid;place-items:center;border-radius:11px;background:#f1f5f9;font-size:21px}.product span{display:block;color:var(--muted);font-size:10px;margin-top:2px}.toolbar{display:flex;gap:10px;justify-content:space-between;margin-bottom:13px}.search{flex:1;max-width:420px;border:1px solid var(--line);border-radius:11px;padding:10px 12px}.kanban{grid-template-columns:repeat(4,minmax(240px,1fr));overflow:auto}.col{background:#eef2f7;padding:11px;border-radius:15px;min-height:280px}.col h3{font-size:12px;margin:4px 3px 10px}.idea{background:white;border:1px solid var(--line);border-radius:13px;padding:12px;margin-bottom:9px}.idea strong{font-size:12px}.idea p{font-size:11px;color:var(--muted);line-height:1.4}.votes{font-size:11px}.callout{background:#eff6ff;border:1px solid #dbeafe;color:#1e3a8a;padding:13px;border-radius:13px;font-size:12px}.row{display:grid;grid-template-columns:1fr 1fr;gap:15px}.panel{padding:17px}.panel h3{margin:0 0 12px;font-size:15px}.field{display:grid;gap:5px;margin:10px 0}.field label{font-size:10px;font-weight:800;color:#475569}.field input,.field select{border:1px solid var(--line);border-radius:10px;padding:10px}.market{background:#f8fafc;border:1px solid var(--line);border-radius:14px;padding:15px}.market h3{margin:0 0 8px}.market p{font-size:12px;color:#475569;line-height:1.55;white-space:pre-line}.mobile{display:none}
-@media(max-width:900px){.metrics{grid-template-columns:repeat(2,1fr)}.shell{grid-template-columns:210px 1fr}.row{grid-template-columns:1fr}}
-@media(max-width:700px){.shell{display:block}.side{display:none}.top{padding:13px 14px}.top h1{font-size:20px}.content{padding:16px 13px 80px}.metrics{gap:9px}.metric strong{font-size:21px}.kanban{grid-template-columns:repeat(4,270px)}.mobile{display:flex;position:fixed;bottom:0;left:0;right:0;height:64px;background:#fff;border-top:1px solid var(--line);z-index:20;justify-content:space-around}.mobile button{border:0;background:none;color:var(--muted);font-size:10px}.mobile button.active{color:var(--blue)}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="description" content="Productos China - control de ideas, compras, inventario, comparativas y ventas." />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Productos China</title>
 </head>
 <body>
-<div class="shell">
-<aside class="side"><div class="brand"><div class="logo">中</div><div><b>Productos China</b><small>Importación · Stock · Ventas</small></div></div><nav class="nav" id="nav"></nav></aside>
-<main class="main"><header class="top"><div><div class="eyebrow" id="eyebrow">OPERACIÓN</div><h1 id="title">Dashboard</h1></div><button class="btn primary" onclick="alert('Demo: aquí abrirá el alta de producto')">＋ Producto</button></header><section class="content" id="content"></section></main>
-</div><nav class="mobile" id="mobile"></nav>
-<script>
-const MXN=n=>new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN',maximumFractionDigits:0}).format(n);
-const products=[
-{id:'PRD-0001',name:'Mini compresor portátil 150 PSI',emoji:'🛞',stock:12,cost:247,market:449,status:'En stock',source:'AliExpress',comparisons:[['Mercado Libre',449],['Amazon',479],['Soriana',499]]},
-{id:'PRD-0002',name:'Lámpara LED recargable magnética',emoji:'💡',stock:24,cost:116,market:289,status:'En stock',source:'Temu',comparisons:[['Mercado Libre',299],['Amazon',279]]},
-{id:'PRD-0003',name:'Organizador plegable para cajuela',emoji:'🚙',stock:5,cost:139,market:329,status:'Stock bajo',source:'AliExpress',comparisons:[['Mercado Libre',349]]},
-{id:'PRD-0004',name:'Selladora térmica mini USB',emoji:'📦',stock:0,cost:79,market:199,status:'En tránsito',source:'Temu',comparisons:[]}
-];
-const ideas=[
-{name:'Aspiradora portátil USB-C',stage:'Votación',detail:'Costo $178 · mercado $399–$499',yes:3,maybe:1,no:0},
-{name:'Impresora térmica etiquetas',stage:'Investigación',detail:'AliExpress · mínimo 5 piezas',yes:1,maybe:2,no:0},
-{name:'Luz ambiente RGB para auto',stage:'Nueva',detail:'Temu · margen preliminar 46%',yes:2,maybe:0,no:1},
-{name:'Dispensador automático jabón',stage:'Aprobada',detail:'Prueba de 10 piezas',yes:4,maybe:0,no:0}
-];
-const sales=[
-{id:'VEN-0007',seller:'Roberto',channel:'Marketplace',product:'Mini compresor',price:430,cost:247,ship:55,fee:0,pct:20},
-{id:'VEN-0006',seller:'Carlos',channel:'Venta física',product:'Lámpara LED',price:260,cost:116,ship:0,fee:10,pct:20},
-{id:'VEN-0005',seller:'Ana',channel:'Marketplace',product:'Organizador cajuela',price:310,cost:139,ship:65,fee:0,pct:15}
-];
-const nav=[['dashboard','⌂','Dashboard'],['products','▦','Productos'],['ideas','💡','Ideas'],['purchases','🚢','Compras'],['sales','＄','Ventas'],['team','👥','Balances'],['settings','⚙','Configuración']];
-let page='dashboard';
-function profit(s){return s.price-s.cost-s.ship-s.fee} function comm(s){return Math.max(0,profit(s))*s.pct/100} function net(s){return profit(s)-comm(s)}
-function setPage(p){page=p;render()}
-function navs(){document.getElementById('nav').innerHTML=nav.map(n=>'<button class="'+(page===n[0]?'active':'')+'" onclick="setPage(\''+n[0]+'\')">'+n[1]+'　'+n[2]+'</button>').join('');document.getElementById('mobile').innerHTML=nav.slice(0,5).map(n=>'<button class="'+(page===n[0]?'active':'')+'" onclick="setPage(\''+n[0]+'\')">'+n[1]+'<br>'+n[2]+'</button>').join('')}
-function metric(label,value,foot){return '<div class="card metric"><small>'+label+'</small><strong>'+value+'</strong><small>'+foot+'</small></div>'}
-function dashboard(){let stock=products.reduce((a,p)=>a+p.stock*p.cost,0),revenue=sales.reduce((a,s)=>a+s.price,0),business=sales.reduce((a,s)=>a+net(s),0),units=products.reduce((a,p)=>a+p.stock,0);return '<div class="grid metrics">'+metric('Capital en inventario',MXN(stock),'Costo puesto en México')+metric('Ventas registradas',MXN(revenue),'Precio real de venta')+metric('Utilidad negocio',MXN(business),'Después de gastos y comisión')+metric('Unidades disponibles',units,products.filter(p=>p.stock<=5).length+' con stock bajo')+'</div><div class="section"><div><h2>Productos</h2><p>Inventario y referencia de mercado.</p></div></div>'+productTable()+'<div class="section"><div><h2>Principio del sistema</h2><p>Automático cuando conviene; manual siempre disponible.</p></div></div><div class="callout">La IA se usa únicamente bajo demanda para buscar similares. Las referencias pueden añadirse manualmente por producto (Amazon, Mercado Libre, Soriana, Walmart o cualquier otra fuente).</div>'}
-function productTable(){return '<div class="card tablewrap"><table><thead><tr><th>Producto</th><th>Estado</th><th>Stock</th><th>Costo real</th><th>Mercado</th><th>Fuentes</th></tr></thead><tbody>'+products.map(p=>'<tr><td><div class="product"><div class="emoji">'+p.emoji+'</div><div><b>'+p.name+'</b><span>'+p.id+' · '+p.source+'</span></div></div></td><td><span class="badge '+(p.status==='En stock'?'green':p.status==='Stock bajo'?'amber':'blue')+'">'+p.status+'</span></td><td>'+p.stock+'</td><td>'+MXN(p.cost)+'</td><td>'+MXN(p.market)+'</td><td>'+p.comparisons.length+'</td></tr>').join('')+'</tbody></table></div>'}
-function productsView(){return '<div class="toolbar"><input class="search" placeholder="Buscar producto, SKU o proveedor…"><button class="btn primary" onclick="alert(\'Demo: alta manual de producto\')">＋ Producto</button></div>'+productTable()+'<div class="section"><div><h2>Ejemplo de comparativa</h2><p>PRD-0001 · búsqueda IA o captura manual.</p></div><button class="btn ghost" onclick="alert(\'Demo: aquí se ejecutará la búsqueda web con IA bajo demanda\')">🔎 Buscar similares</button></div><div class="card panel"><table><thead><tr><th>Fuente</th><th>Precio</th><th>Modo</th><th>Link</th></tr></thead><tbody>'+products[0].comparisons.map((x,i)=>'<tr><td>'+x[0]+'</td><td>'+MXN(x[1])+'</td><td><span class="badge '+(i<2?'blue':'')+'">'+(i<2?'IA':'Manual')+'</span></td><td><a href="#" onclick="return false">Abrir</a></td></tr>').join('')+'</tbody></table><button class="btn ghost" onclick="alert(\'Demo: agregar Amazon, Soriana, tienda local, etc.\')">＋ Agregar referencia manual</button></div>'}
-function ideasView(){let stages=['Nueva','Investigación','Votación','Aprobada'];return '<div class="section"><div><h2>Ideas de inversión</h2><p>Proponer, investigar, discutir y votar.</p></div><button class="btn primary">＋ Nueva idea</button></div><div class="grid kanban">'+stages.map(s=>'<div class="col"><h3>'+s+'</h3>'+ideas.filter(i=>i.stage===s).map(i=>'<div class="idea"><strong>'+i.name+'</strong><p>'+i.detail+'</p><div class="votes">👍 '+i.yes+'　🤔 '+i.maybe+'　👎 '+i.no+'</div></div>').join('')+'</div>').join('')+'</div>'}
-function purchases(){return '<div class="section"><div><h2>Compras e importación</h2><p>Seguimiento desde proveedor hasta inventario.</p></div><button class="btn primary">＋ Registrar compra</button></div><div class="card tablewrap"><table><thead><tr><th>Folio</th><th>Proveedor</th><th>Producto</th><th>Cantidad</th><th>Total</th><th>Estado</th></tr></thead><tbody><tr><td>COM-0008</td><td>AliExpress</td><td>Selladora térmica mini USB</td><td>30</td><td>$2,370</td><td><span class="badge blue">En tránsito</span></td></tr><tr><td>COM-0007</td><td>Temu</td><td>Lámpara LED</td><td>25</td><td>$2,900</td><td><span class="badge green">Recibida</span></td></tr></tbody></table></div>'}
-function salesView(){return '<div class="section"><div><h2>Ventas y utilidad real</h2><p>Precio real, canal, flete, comisión y reparto.</p></div><button class="btn primary" onclick="alert(\'Demo: formulario de venta manual\')">＋ Registrar venta</button></div><div class="card tablewrap"><table><thead><tr><th>Venta</th><th>Vendedor</th><th>Canal</th><th>Precio</th><th>Utilidad</th><th>Le corresponde</th><th>Negocio</th></tr></thead><tbody>'+sales.map(s=>'<tr><td>'+s.id+'<br><small>'+s.product+'</small></td><td>'+s.seller+'</td><td>'+s.channel+'</td><td>'+MXN(s.price)+'</td><td>'+MXN(profit(s))+'</td><td>'+MXN(comm(s))+'</td><td><b>'+MXN(net(s))+'</b></td></tr>').join('')+'</tbody></table></div>'}
-function teamView(){let names=['Roberto','Carlos','Ana','Socio 4'];return '<div class="callout">“Cuánto produjo” y “cuánto le corresponde” se muestran por separado. Cada movimiento quedará trazable venta por venta.</div><div class="section"><div><h2>Balances individuales</h2><p>Acumulado por persona.</p></div></div><div class="card tablewrap"><table><thead><tr><th>Persona</th><th>Ventas</th><th>Venta total</th><th>Utilidad generada</th><th>Le corresponde</th></tr></thead><tbody>'+names.map(n=>{let a=sales.filter(s=>s.seller===n);return '<tr><td><b>'+n+'</b></td><td>'+a.length+'</td><td>'+MXN(a.reduce((x,s)=>x+s.price,0))+'</td><td>'+MXN(a.reduce((x,s)=>x+profit(s),0))+'</td><td><b>'+MXN(a.reduce((x,s)=>x+comm(s),0))+'</b></td></tr>'}).join('')+'</tbody></table></div>'}
-function settings(){return '<div class="row"><div class="card panel"><h3>Inteligencia artificial</h3><div class="field"><label>PROVEEDOR</label><select><option>OpenAI</option><option>Gemini</option><option>Claude</option><option>OpenRouter</option><option>Personalizado</option></select></div><div class="field"><label>MODELO</label><input placeholder="Modelo"></div><div class="field"><label>API KEY</label><input type="password" placeholder="Se guardará en backend seguro"></div><button class="btn primary" onclick="alert(\'Demo: integración backend pendiente\')">Probar conexión</button></div><div class="card panel"><h3>Marketplace</h3><div class="market"><h3>Mini compresor portátil 150 PSI</h3><p>Precio: $449
+  <div class="demo-banner">Vista de demostración · datos de ejemplo · los cambios se pierden al recargar. No captures información real ni claves API todavía.</div>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark">中</div>
+        <div><strong>Productos China</strong><span>Importación · Stock · Ventas</span></div>
+      </div>
+      <nav id="mainNav" class="nav"></nav>
+      <div class="sidebar-footer">
+        <div class="user-chip"><div class="avatar">RR</div><div><strong>Roberto</strong><span>Administrador</span></div></div>
+      </div>
+    </aside>
 
-Compresor portátil recargable con pantalla digital. Producto nuevo, disponible para entrega.</p><span class="badge green">Stock disponible: 12</span></div><br><button class="btn primary" onclick="alert(\'Nivel 1: revisar todo y luego abrir Facebook Marketplace para publicar manualmente\')">📢 Preparar publicación</button></div></div>'}
-function render(){navs();let meta={dashboard:['OPERACIÓN','Dashboard'],products:['CATÁLOGO','Productos e inventario'],ideas:['DECISIÓN','Ideas y votación'],purchases:['ABASTECIMIENTO','Compras e importación'],sales:['RESULTADOS','Ventas y utilidad real'],team:['EQUIPO','Balances por persona'],settings:['SISTEMA','Configuración']}[page];document.getElementById('eyebrow').textContent=meta[0];document.getElementById('title').textContent=meta[1];document.getElementById('content').innerHTML={dashboard:dashboard,products:productsView,ideas:ideasView,purchases:purchases,sales:salesView,team:teamView,settings:settings}[page]()}
-render();
-</script>
-</body></html>
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-btn mobile-only" id="menuBtn" aria-label="Abrir menú">☰</button>
+        <div><p class="eyebrow" id="eyebrow">OPERACIÓN</p><h1 id="pageTitle">Dashboard</h1></div>
+        <div class="top-actions">
+          <button class="ghost-btn" id="quickIdeaBtn">＋ Nueva idea</button>
+          <button class="primary-btn" id="quickProductBtn">＋ Producto</button>
+        </div>
+      </header>
+      <section id="content" class="content"></section>
+    </main>
+  </div>
+
+  <div class="mobile-nav" id="mobileNav"></div>
+  <div id="modalRoot"></div>
+  <div id="toastRoot" class="toast-root"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

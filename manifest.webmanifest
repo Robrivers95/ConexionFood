@@ -1,0 +1,10 @@
+{
+  "name":"Productos China",
+  "short_name":"ProductosChina",
+  "start_url":"./",
+  "display":"standalone",
+  "background_color":"#f4f7fb",
+  "theme_color":"#0f172a",
+  "description":"Ideas, importación, inventario, comparativas, Marketplace y balances de equipo.",
+  "icons":[]
+}
