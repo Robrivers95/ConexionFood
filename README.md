@@ -22,7 +22,7 @@ App colaborativa para ideas, comparativas, compras, inventario, ventas y balance
 1. Confirma que el ID del proyecto y del sitio Firebase Hosting son `productoschinagarcia`.
 2. Activa **Correo/contraseña** en Authentication y autoriza el dominio `productoschinagarcia.web.app`.
 3. Firestore usa `firestore.rules`. Realtime Database permanece cerrada con `database.rules.json`, pues esta app utiliza Firestore.
-4. En los secretos Actions del repositorio agrega `FIREBASE_SERVICE_ACCOUNT_PRODUCTOSCHINAGARCIA` con un JSON de cuenta de servicio habilitada para desplegar Hosting y reglas. Nunca lo subas al repositorio.
+4. Crea una cuenta de servicio dedicada al despliegue en Google Cloud con los roles **Firebase Hosting Admin** (`roles/firebasehosting.admin`) y **API Keys Viewer** (`roles/serviceusage.apiKeysViewer`). Genera una clave JSON para esa cuenta y guárdala en el secreto Actions `FIREBASE_SERVICE_ACCOUNT_PRODUCTOSCHINAGARCIA` de este repositorio. Nunca uses la clave de **Firebase Admin SDK** para el workflow ni subas el JSON al repositorio.
 5. Las reglas de Firestore y Realtime Database deben publicarse por separado tras revisar la política de acceso. Cada push a `main` compila y despliega solo Hosting. También puedes iniciar el workflow **Build and deploy Firebase** manualmente. URL: https://productoschinagarcia.web.app/.
 
 La integración oficial desde una PC con acceso administrativo se inicia con `npx firebase-tools login` y `npx firebase-tools init hosting:github`; selecciona este repositorio y proyecto. Ese asistente puede generar un secreto de nombre distinto: ajústalo en el workflow si es necesario.
