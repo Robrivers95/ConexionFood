@@ -16,7 +16,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
-      - name: Deploy Hosting and security rules
+      - name: Deploy Firebase Hosting
         env:
           FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRODUCTOSCHINAGARCIA }}
         run: |
@@ -26,4 +26,4 @@ jobs:
           fi
           printf '%s' "$FIREBASE_SERVICE_ACCOUNT" > "$RUNNER_TEMP/firebase-service-account.json"
           export GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/firebase-service-account.json"
-          npx --yes firebase-tools deploy --project productoschinagarcia --only hosting,firestore:rules,database --non-interactive
+          npx --yes firebase-tools deploy --project productoschinagarcia --only hosting --non-interactive
