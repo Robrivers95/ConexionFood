@@ -8,10 +8,10 @@ App colaborativa para ideas, comparativas, compras, inventario, ventas y balance
 - Equipo privado con invitaciones por correo y roles administrador, compras, ventas, almacén y socio.
 - Fichas de producto, referencias manuales por tienda, votos, compras con recepción, inventario y movimientos.
 - Venta real por canal y vendedor, costos, comisión elegida por venta y descuento atómico del stock.
-- Resumen, ventas y balances por mes; CSV de ventas, productos, compras y movimientos; PDF de resumen y hoja de compartir del dispositivo.
+- Resumen, ventas y balances por mes; CSV y PDF de ventas, productos, compras, ideas, balances y movimientos; hoja de compartir del dispositivo.
 - Borrador revisable para Facebook Marketplace. La publicación y carga de fotos se hacen manualmente en Facebook.
 
-**No incluidas todavía:** investigación automática con IA, fotos subidas a Storage, envío directo de email, comisiones globales por canal o producto y PDF detallado de cada módulo. No pegues claves de IA en el navegador.
+**No incluidas todavía:** investigación automática con IA, fotos subidas a Storage, envío directo de email y comisiones globales por canal o producto. No pegues claves de IA en el navegador.
 
 ## Ejecutar localmente
 
