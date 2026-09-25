@@ -1,0 +1,66 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signed() { return request.auth != null && request.auth.token.email_verified == true; }
+    function member(w) { return signed() && exists(/databases/$(database)/documents/workspaces/$(w)/members/$(request.auth.uid)); }
+    function role(w) { return get(/databases/$(database)/documents/workspaces/$(w)/members/$(request.auth.uid)).data.role; }
+    function allowed(w, roles) { return member(w) && role(w) in roles; }
+    function owner(w) { return signed() && get(/databases/$(database)/documents/workspaces/$(w)).data.ownerUid == request.auth.uid; }
+    match /profiles/{uid} {
+      allow read, write: if signed() && request.auth.uid == uid && (!('workspaceId' in request.resource.data) || request.resource.data.workspaceId is string);
+    }
+    match /workspaces/{w} {
+      allow create: if signed() && request.resource.data.ownerUid == request.auth.uid && request.resource.data.keys().hasOnly(['ownerUid','name','createdAt']);
+      allow read: if member(w) || owner(w);
+      allow update: if owner(w) && request.resource.data.ownerUid == resource.data.ownerUid;
+      allow delete: if false;
+      match /members/{uid} {
+        allow read: if member(w);
+        allow create: if signed() && request.auth.uid == uid && request.resource.data.keys().hasOnly(['name','email','role','joinedAt']) && (
+          (owner(w) && request.resource.data.role == 'admin') ||
+          (exists(/databases/$(database)/documents/workspaces/$(w)/invites/$(request.auth.token.email)) &&
+           get(/databases/$(database)/documents/workspaces/$(w)/invites/$(request.auth.token.email)).data.role == request.resource.data.role)
+        );
+        allow update: if owner(w) && request.resource.data.email == resource.data.email && request.resource.data.joinedAt == resource.data.joinedAt;
+        allow delete: if owner(w) && uid != request.auth.uid;
+      }
+      match /invites/{email} {
+        allow get: if allowed(w,['admin']) || (signed() && request.auth.token.email == email);
+        allow list: if allowed(w,['admin']);
+        allow create, update: if allowed(w,['admin']) && request.resource.data.role in ['admin','compras','ventas','almacen','socio'];
+        allow delete: if allowed(w,['admin']);
+      }
+      match /products/{id} {
+        allow read: if member(w);
+        allow create, update: if allowed(w,['admin','compras','ventas','almacen']) && request.resource.data.stock is number && request.resource.data.stock >= 0 && request.resource.data.cost is number && request.resource.data.cost >= 0;
+        allow delete: if false;
+      }
+      match /ideas/{id} {
+        allow read: if member(w);
+        allow create, update: if member(w);
+        allow delete: if false;
+      }
+      match /purchases/{id} {
+        allow read: if member(w);
+        allow create: if allowed(w,['admin','compras']) && request.resource.data.qty is number && request.resource.data.qty > 0;
+        allow update: if (allowed(w,['admin','compras']) || (allowed(w,['almacen']) && resource.data.status == 'En tránsito' && request.resource.data.status == 'Recibida' && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status','receivedAt']))) && request.resource.data.qty is number && request.resource.data.qty > 0;
+        allow delete: if false;
+      }
+      match /sales/{id} {
+        allow read: if member(w);
+        allow create: if allowed(w,['admin','ventas']) && request.resource.data.price is number && request.resource.data.price >= 0 && request.resource.data.cost is number && request.resource.data.cost >= 0 && request.resource.data.shipping is number && request.resource.data.shipping >= 0 && request.resource.data.fee is number && request.resource.data.fee >= 0 && request.resource.data.other is number && request.resource.data.other >= 0 && request.resource.data.pct is number && request.resource.data.pct >= 0 && request.resource.data.pct <= 100 && request.resource.data.qty == 1;
+        allow update, delete: if false;
+      }
+      match /payments/{id} {
+        allow read: if member(w);
+        allow create: if allowed(w,['admin']) && request.resource.data.amount is number && request.resource.data.amount > 0;
+        allow update, delete: if false;
+      }
+      match /movements/{id} {
+        allow read: if member(w);
+        allow create: if allowed(w,['admin','compras','ventas','almacen']);
+        allow update, delete: if false;
+      }
+    }
+  }
+}

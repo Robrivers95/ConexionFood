@@ -1,2 +1,6 @@
+node_modules/
 dist/
-.DS_Store
+.env*
+!*.example
+*.log
+firebase-debug.log

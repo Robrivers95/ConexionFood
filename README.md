@@ -1,8 +1,30 @@
 # Productos China
 
-MVP web para controlar ideas de inversión, compras desde China, inventario, comparativas de mercado, preparación de Facebook Marketplace, ventas y balances del equipo.
+App colaborativa para ideas, comparativas, compras, inventario, ventas y balances. El código está temporalmente en `Robrivers95/ConexionFood`; el sitio Firebase Hosting `productoschinagarcia` no depende del nombre del repositorio.
 
-## Deploy
-Cada push a `main` ejecuta GitHub Actions y publica `dist/` en GitHub Pages.
+## Disponible
 
-Repositorio temporal: `ConexionFood`. Cuando se renombre, GitHub Pages usará automáticamente la nueva ruta del repositorio.
+- Correo y contraseña de Firebase Authentication, verificación del correo y restablecimiento de contraseña.
+- Equipo privado con invitaciones por correo y roles administrador, compras, ventas, almacén y socio.
+- Fichas de producto, referencias manuales por tienda, votos, compras con recepción, inventario y movimientos.
+- Venta real por canal y vendedor, costos, comisión elegida por venta y descuento atómico del stock.
+- Resumen, ventas y balances por mes; CSV de ventas, productos, compras y movimientos; PDF de resumen y hoja de compartir del dispositivo.
+- Borrador revisable para Facebook Marketplace. La publicación y carga de fotos se hacen manualmente en Facebook.
+
+**No incluidas todavía:** investigación automática con IA, fotos subidas a Storage, envío directo de email, comisiones globales por canal o producto y PDF detallado de cada módulo. No pegues claves de IA en el navegador.
+
+## Ejecutar localmente
+
+`npm ci && npm run dev`. Copia `.env.example` a `.env.local` y completa la configuración pública de la app web desde Firebase Console. La API key web de Firebase no da acceso administrativo: los permisos dependen de las reglas de Firestore. Una vez en Hosting, la app lee `/__/firebase/init.json` automáticamente.
+
+## Publicar
+
+1. Confirma que el ID del proyecto y del sitio Firebase Hosting son `productoschinagarcia`.
+2. Activa **Correo/contraseña** en Authentication y autoriza el dominio `productoschinagarcia.web.app`.
+3. Firestore usa `firestore.rules`. Realtime Database permanece cerrada con `database.rules.json`, pues esta app utiliza Firestore.
+4. En los secretos Actions del repositorio agrega `FIREBASE_SERVICE_ACCOUNT_PRODUCTOSCHINAGARCIA` con un JSON de cuenta de servicio habilitada para desplegar Hosting y reglas. Nunca lo subas al repositorio.
+5. Cada push a `main` compila y despliega Hosting y las reglas. También puedes iniciar el workflow **Build and deploy Firebase** manualmente. URL: https://productoschinagarcia.web.app/.
+
+La integración oficial desde una PC con acceso administrativo se inicia con `npx firebase-tools login` y `npx firebase-tools init hosting:github`; selecciona este repositorio y proyecto. Ese asistente puede generar un secreto de nombre distinto: ajústalo en el workflow si es necesario.
+
+Las invitaciones se guardan con el correo exacto del destinatario y se comparte el enlace del equipo; la app no envía el correo automáticamente. Las ventas son inmutables para conservar su cálculo original y evitar un segundo descuento de inventario.
