@@ -4,7 +4,7 @@ App colaborativa para ideas, comparativas, compras, inventario, ventas y balance
 
 ## Disponible
 
-- Correo y contraseña de Firebase Authentication, verificación del correo y restablecimiento de contraseña.
+- Correo y contraseña de Firebase Authentication, acceso con Google, verificación del correo y restablecimiento de contraseña.
 - Equipo privado con invitaciones por correo y roles administrador, compras, ventas, almacén y socio.
 - Fichas de producto, referencias manuales por tienda, votos, compras con recepción, inventario y movimientos.
 - Venta real por canal y vendedor, costos, comisión elegida por venta y descuento atómico del stock.
