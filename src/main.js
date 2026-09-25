@@ -29,7 +29,9 @@ const nav=[['dashboard','◫','Resumen'],['products','▦','Productos'],['ideas'
 function render(){
  if(!model.workspace)return;
  const name=model.data.members.find(x=>x.id===model.user.uid)?.name||model.user.email;
+ const activeModal=document.querySelector('#modal')?.firstElementChild;
  view(`<div class="shell"><aside><div class="logo"><span>中</span><div><b>Productos China</b><small>${esc(model.workspace)}</small></div></div><nav>${nav.map(([id,icon,title])=>`<button data-page="${id}" class="${model.page===id?'on':''}"><span>${icon}</span>${title}</button>`).join('')}</nav><div class="account"><b>${esc(name)}</b><small>${esc(model.role||'Socio')} · ${esc(model.user.email)}</small>${button('Cerrar sesión','logout','plain')}</div></aside><main><header><div><small class="kicker">OPERACIÓN · ${esc(model.month||'TODOS LOS PERIODOS')}</small><h1>${pageTitle()}</h1></div><div class="header-actions"><label>Periodo <input type="month" id="period" value="${esc(model.month)}"></label>${button('Exportar','export-menu','secondary')}</div></header><section>${({dashboard:dashboard,products:products,ideas:ideas,purchases:purchases,sales:sales,team:team,reports:reports,settings:settings})[model.page]()}</section></main></div><div class="mobile-nav">${nav.slice(0,5).map(([id,icon,title])=>`<button data-page="${id}" class="${model.page===id?'on':''}">${icon}<small>${title}</small></button>`).join('')}</div><div id="modal"></div>`);
+ if(activeModal)document.querySelector('#modal').append(activeModal);
  document.querySelector('#period').onchange=e=>{model.month=e.target.value;render();};
 }
 function dashboard(){const s=model.data.sales.filter(period),p=model.data.products,margin=s.reduce((a,x)=>a+profit(x)-commission(x),0),revenue=s.reduce((a,x)=>a+num(x.price),0),stock=p.reduce((a,x)=>a+num(x.stock),0);
